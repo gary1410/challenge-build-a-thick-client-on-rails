@@ -38,7 +38,7 @@ GET /quizzes.json
 #### Request
 
 ```
-GET /quizzes/1.json
+GET /quizzes/1/questions/next.json
 ```
 
 #### Request Data
@@ -63,13 +63,13 @@ GET /quizzes/1.json
 #### Request
 
 ```
-POST /questions/1/answers
+POST /questions/1/answers.json
 ```
 
 #### Request Data
 
 ```json
-{ session_id: 'a124f87dec55da23', id: 1, answer: 12 }
+{ session_id: 'a124f87dec55da23', choice_id: 12 }
 ```
 
 
