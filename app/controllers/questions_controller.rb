@@ -4,8 +4,13 @@ class QuestionsController < ApplicationController
   def next
     quiz = Quiz.find(params[:quiz_id])
     if quiz
-      question = quiz.questions.first
-      render json: question.to_json
+      last_answered_question_id = @simple_session.last_answered_question_id || 0
+      remaining_questions = quiz.questions.where("id > ?", last_answered_question_id)
+      if remaining_questions.count > 0
+        render json: remaining_questions.first.to_json
+      else
+        render status: :unprocessable_entity, json: { message: "No more questions in quiz '#{quiz.name}'!" }.to_json
+      end
     else
       render status: :unprocessable_entity, json: { message: "#{quiz.id} is not a valid quiz id!" }.to_json
     end
@@ -16,10 +21,11 @@ class QuestionsController < ApplicationController
     question = Question.find(params[:question_id])
     submitted_choice = Choice.find(params[:choice_id])
     correct_choice = question.choices.where(is_correct: true).first
+    more_questions = question.quiz.questions.where("id > ?", question.id).count > 0
     if question
       render json: {
         id: question.id,
-        more_questions: false,
+        more_questions: more_questions,
         correct: submitted_choice.id == correct_choice.id,
         submitted_choice: submitted_choice.id,
         correct_choice: correct_choice.id,

@@ -43,7 +43,7 @@ GET /quizzes/1/questions/next.json
 
 #### Request Data
 
-{ session_id: 'a124f87dec55da23' }
+{ session_key: 'a124f87dec55da23' }
 
 #### Response
 
@@ -69,7 +69,7 @@ POST /questions/1/answers.json
 #### Request Data
 
 ```json
-{ session_id: 'a124f87dec55da23', choice_id: 12 }
+{ session_key: 'a124f87dec55da23', choice_id: 12 }
 ```
 
 
