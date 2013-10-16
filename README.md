@@ -43,7 +43,9 @@ GET /quizzes/1/questions/next.json
 
 #### Request Data
 
+```
 { session_key: 'a124f87dec55da23' }
+```
 
 #### Response
 
