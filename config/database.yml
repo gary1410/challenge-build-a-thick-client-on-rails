@@ -1,0 +1,13 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: quizzes_development
+  pool: 5
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: quizzes_test
+  pool: 5
