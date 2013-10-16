@@ -79,10 +79,10 @@ POST /questions/1/answers.json
 {
   id: 1,
   more_questions: true, // if false, display complete message
-  correct: true,
-  submitted_answer: "a",
-  correct_answer: "a",
-  num_correct: 2,
-  num_incorrect: 3
+  correct: false,
+  submitted_choice: 12,
+  correct_choice: 13,
+  num_correct: 0,
+  num_incorrect: 1
 }
 ```

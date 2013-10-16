@@ -3,7 +3,7 @@ class QuizzesController < ApplicationController
 
   # GET /quizzes.json
   def index
-    puts "GET /quizzes.json"
-    render json: {}.to_json
+    quizzes = Quiz.all
+    render json: { quizzes: quizzes }.to_json
   end
 end
