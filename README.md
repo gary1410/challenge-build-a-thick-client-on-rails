@@ -41,6 +41,10 @@ GET /quizzes.json
 GET /quizzes/1.json
 ```
 
+#### Request Data
+
+{ session_id: 'a124f87dec55da23' }
+
 #### Response
 
 ```json
@@ -48,17 +52,9 @@ GET /quizzes/1.json
   id: 1,
   question: "Did your mom go to college?",
   choices: {
-    a: "Yes",
-    b: "No"
+    12: "Yes", // should render as "a: Yes"
+    13: "No"   // should render as "b: No"
   }
-}
-```
-... or, if it isn't multiple choice ...
-
-```json
-{
-  id: 2,
-  question: "What time is it?"
 }
 ```
 
@@ -73,14 +69,9 @@ POST /questions/1/answers
 #### Request Data
 
 ```json
-{ id: 1, answer: "a" }
+{ session_id: 'a124f87dec55da23', id: 1, answer: 12 }
 ```
 
-... or ...
-
-```json
-{ id: 2, answer: "3pm" }
-```
 
 #### Response
 
