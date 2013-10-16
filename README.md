@@ -2,6 +2,10 @@
 
 ## This app exposes an API for a simple quiz appication.
 
+Your mission: build a one-page app using (at least) jQuery, Javascript, and AJAX to render questions to the user, allow her to submit answers, tell her whether or not her submitted answer was correct, and give her her final correct / incorrect tally.
+
+Fork this repo to get started!
+
 ## APIs
 
 ### Get Quizzes
