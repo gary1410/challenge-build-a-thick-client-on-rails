@@ -43,6 +43,8 @@ GET /quizzes/1/questions/next.json
 
 #### Request Data
 
+Every request (except listing quizzes) must pass a "session_key" which uniquely identifies the particular user taking the quiz. The session key should be a unique string. Simply generate something unique-ish from Javascript and be sure to package it along with any other data you send to the API.
+
 ```
 { session_key: 'a124f87dec55da23' }
 ```
