@@ -25,7 +25,7 @@ var QuizView = function(quiz) {
   this.init(quiz);
   this.$element = $("#views .quiz").clone();
   this.$element = $("#views .quiz").clone();
-  this.$element.find('a.quiz-link').data('id', this.id).text(this.name);
+  this.$element.find('a.quiz-link').data('quiz-id', this.quiz_id).text(this.name);
 };
 QuizView.prototype = BaseView;
 
@@ -46,7 +46,7 @@ var ChoiceView = function(choice) {
   this.init(choice);
   this.$element = $("#views .choice").clone();
   var $choiceLink = this.$element.find("a.choice-link");
-  $choiceLink.data('id', this.id);
+  $choiceLink.data('choice-id', this.choice_id);
   $choiceLink.data('question-id', this.question_id);
   $choiceLink.data('quiz-id', this.quiz_id);
   $choiceLink.text(this.choice);
