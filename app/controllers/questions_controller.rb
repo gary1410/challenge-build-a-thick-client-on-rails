@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
       last_answered_question_id = @simple_session.last_answered_question_id || 0
       remaining_questions = quiz.questions.where("id > ?", last_answered_question_id)
       if remaining_questions.count > 0
-        render json: remaining_questions.first.to_json
+        render json: { question: remaining_questions.first }.to_json
       else
         render status: :unprocessable_entity, json: { message: "No more questions in quiz '#{quiz.name}'!" }.to_json
       end
@@ -25,13 +25,16 @@ class QuestionsController < ApplicationController
     more_questions = question.quiz.questions.where("id > ?", question.id).count > 0
     if question
       render json: {
-        id: question.id,
-        more_questions: more_questions,
-        correct: submitted_choice.id == correct_choice.id,
-        submitted_choice: submitted_choice.id,
-        correct_choice: correct_choice.id,
-        num_correct: @simple_session.num_correct,
-        num_incorrect: @simple_session.num_incorrect
+        status: {
+          quiz_id: question.quiz.id,
+          question_id: question.id,
+          more_questions: more_questions,
+          correct: submitted_choice.id == correct_choice.id,
+          submitted_choice_id: submitted_choice.id,
+          correct_choice_id: correct_choice.id,
+          num_correct: @simple_session.num_correct,
+          num_incorrect: @simple_session.num_incorrect
+        }
       }.to_json
     else
       render status: :unprocessable_entity, json: { message: "#{question.id} is not a valid question id!" }.to_json

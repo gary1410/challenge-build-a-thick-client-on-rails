@@ -22,11 +22,11 @@ GET /quizzes.json
 {
   quizzes: [
     {
-      id: 1,
+      quiz_id: 1,
       name: "Random Stuff"
     },
     {
-      id: 2,
+      quiz_id: 2,
       name: "Javascript Questions"
     }
   ]
@@ -53,18 +53,21 @@ Every request (except listing quizzes) must pass a "session_key" which uniquely 
 
 ```javascript
 {
-  id: 1,
-  question: "Did your mom go to college?",
-  choices: [
-    {
-      id: 12,
-      choice: "Yes"
-    }, 
-    {
-      id: 13,
-      choice: "No"
-    }
-  ]
+  question: {
+    quiz_id: 1,
+    question_id: 1,
+    question: "Did your mom go to college?",
+    choices: [
+      {
+        choice_id: 12,
+        choice: "Yes"
+      }, 
+      {
+        choice_id: 13,
+        choice: "No"
+      }
+    ]
+  }
 }
 ```
 
@@ -87,12 +90,15 @@ POST /questions/1/answers.json
 
 ```javascript
 {
-  id: 1,
-  more_questions: true, // if false, display complete message
-  correct: false,
-  submitted_choice: 12,
-  correct_choice: 13,
-  num_correct: 0,
-  num_incorrect: 1
+  status: {
+    quiz_id: 1,
+    question_id: 1,
+    more_questions: true,
+    correct: false,
+    submitted_choice_id: 12,
+    correct_choice_id: 13,
+    num_correct: 0,
+    num_incorrect: 1
+  }
 }
 ```
