@@ -4,6 +4,8 @@ class Choice < ActiveRecord::Base
 
   def as_json(options={})
     {
+      quiz_id: question.quiz.id,
+      question_id: question.id,
       choice_id: id,
       choice: choice
     }
