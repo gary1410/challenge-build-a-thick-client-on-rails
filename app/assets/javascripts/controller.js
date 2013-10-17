@@ -12,7 +12,8 @@ var Data = {
 }
 
 var Controller = {
-  start: function() {
+  start: function(e) {
+    if (e) e.preventDefault();
     Data.reset();
     Controller.showQuizzes();
   },
@@ -44,7 +45,8 @@ var Controller = {
     $request.fail(Controller.handleError);
   },
 
-  submitAnswer: function() {
+  submitAnswer: function(e) {
+    e.preventDefault();
     var questionId = $(this).data('question-id');
     var quizId = $(this).data('quiz-id');
     var choiceId = $(this).data('id');
