@@ -4,7 +4,7 @@ class Quiz < ActiveRecord::Base
 
   def as_json(options={})
     {
-      :id => id,
+      :quiz_id => id,
       :name => name
     }
   end
