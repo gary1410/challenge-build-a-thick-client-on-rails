@@ -59,10 +59,14 @@ Every request (except listing quizzes) must pass a "session_key" which uniquely 
     question: "Did your mom go to college?",
     choices: [
       {
+        quiz_id: 1,
+        question_id: 1,
         choice_id: 12,
         choice: "Yes"
       }, 
       {
+        quiz_id: 1,
+        question_id: 1,
         choice_id: 13,
         choice: "No"
       }
