@@ -7,8 +7,13 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 quiz = Quiz.create(name: "Dev Bootcamp Questions")
-question = quiz.questions.create(question: "Who is your favorite teacher?")
-choiceA = question.choices.create(choice: "Matt", is_correct: false)
-choiceB = question.choices.create(choice: "Strand", is_correct: false)
-choiceC = question.choices.create(choice: "Jeffrey", is_correct: false)
-choiceD = question.choices.create(choice: "None of the Above", is_correct: true)
+
+question1 = quiz.questions.create(question: "Who is your favorite teacher?")
+question1.choices.create(choice: "Matt", is_correct: false)
+question1.choices.create(choice: "Strand", is_correct: false)
+question1.choices.create(choice: "Jeffrey", is_correct: false)
+question1.choices.create(choice: "None of the Above", is_correct: true)
+
+question2 = quiz.questions.create(question: "Is Javascript awesome?")
+question2.choices.create(choice: "Yes", is_correct: true)
+question2.choices.create(choice: "No", is_correct: false)

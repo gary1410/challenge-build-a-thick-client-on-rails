@@ -21,6 +21,7 @@ class QuestionsController < ApplicationController
     question = Question.find(params[:question_id])
     submitted_choice = Choice.find(params[:choice_id])
     correct_choice = question.choices.where(is_correct: true).first
+    @simple_session.tally(submitted_choice, correct_choice)
     more_questions = question.quiz.questions.where("id > ?", question.id).count > 0
     if question
       render json: {
@@ -29,8 +30,8 @@ class QuestionsController < ApplicationController
         correct: submitted_choice.id == correct_choice.id,
         submitted_choice: submitted_choice.id,
         correct_choice: correct_choice.id,
-        num_correct: (submitted_choice.id == correct_choice.id) ? 1 : 0,
-        num_incorrect: (submitted_choice.id == correct_choice.id) ? 0 : 1
+        num_correct: @simple_session.num_correct,
+        num_incorrect: @simple_session.num_incorrect
       }.to_json
     else
       render status: :unprocessable_entity, json: { message: "#{question.id} is not a valid question id!" }.to_json
