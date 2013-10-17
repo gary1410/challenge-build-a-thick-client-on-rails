@@ -1,7 +1,46 @@
-.container {
-  margin: 3em;
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+body, button {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.3em;
+  color: DarkSlateGray;
+}
+
+a {
+  text-decoration: none;
+  color: teal;
+}
+
+a:hover {
+  color: white;
+}
+
+li, button {
+  background: white;
+  color: teal;
+  list-style-type: none;
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid teal;
+  margin-bottom: 20px;
+}
+
+li:hover, button:hover {
+  background-color: teal;
+}
+
+li:hover a, button:hover {
+  color: white;
 }
 
 #views {
   visibility: hidden;
 }
+
+.container {
+  text-align: center;
+  margin: 100px;
+}
+
+
