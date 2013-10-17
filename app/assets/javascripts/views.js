@@ -11,8 +11,8 @@ var BaseView = {
 };
 
 
-var QuizListView = function(quizzes) {
-  this.quizzes = quizzes;
+var QuizListView = function(data) {
+  this.init(data);
   this.$element = $("#views .quiz-list").clone();
   for (var i in this.quizzes) {
     var quizView = new QuizView(this.quizzes[i]);
@@ -30,25 +30,25 @@ var QuizView = function(quiz) {
 QuizView.prototype = BaseView;
 
 
-var QuestionView = function(question, quizId) {
+var QuestionView = function(question) {
   this.init(question);
   this.$element = $("#views .question").clone();
   this.$element.find('h1').text(this.question);
   for (var i in this.choices) {
-    var choiceView = new ChoiceView(this.choices[i], this.id, quizId);
+    var choiceView = new ChoiceView(this.choices[i], this.id, this.quiz_id);
     this.$element.find('.choice-list').append(choiceView.render());
   }
 };
 QuestionView.prototype = BaseView;
 
 
-var ChoiceView = function(choice, questionId, quizId) {
+var ChoiceView = function(choice) {
   this.init(choice);
   this.$element = $("#views .choice").clone();
   var $choiceLink = this.$element.find("a.choice-link");
   $choiceLink.data('id', this.id);
-  $choiceLink.data('question-id', questionId);
-  $choiceLink.data('quiz-id', quizId);
+  $choiceLink.data('question-id', this.question_id);
+  $choiceLink.data('quiz-id', this.quiz_id);
   $choiceLink.text(this.choice);
 };
 ChoiceView.prototype = BaseView;
