@@ -18,7 +18,7 @@ GET /quizzes.json
 
 #### Response
 
-```json
+```javascript
 {
   quizzes: [
     {
@@ -45,13 +45,13 @@ GET /quizzes/1/questions/next.json
 
 Every request (except listing quizzes) must pass a "session_key" which uniquely identifies the particular user taking the quiz. The session key should be a unique string. Simply generate something unique-ish from Javascript and be sure to package it along with any other data you send to the API.
 
-```
+```javascript
 { session_key: 'a124f87dec55da23' }
 ```
 
 #### Response
 
-```json
+```javascript
 {
   id: 1,
   question: "Did your mom go to college?",
@@ -78,14 +78,14 @@ POST /questions/1/answers.json
 
 #### Request Data
 
-```json
+```javascript
 { session_key: 'a124f87dec55da23', choice_id: 12 }
 ```
 
 
 #### Response
 
-```json
+```javascript
 {
   id: 1,
   more_questions: true, // if false, display complete message
