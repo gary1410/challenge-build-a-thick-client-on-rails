@@ -56,11 +56,18 @@ Every request (except listing quizzes) must pass a "session_key" which uniquely 
   id: 1,
   question: "Did your mom go to college?",
   choices: [
-
-    {12: "Yes"}, // should render as "a: Yes"
-    {13: "No"}   // should render as "b: No"
+    {
+      id: 12,
+      choice: "Yes"
+    }, 
+    {
+      id: 13,
+      choice: "No"
+    }
   ]
 }
+```
+
 ### Submit Answer
 
 #### Request
