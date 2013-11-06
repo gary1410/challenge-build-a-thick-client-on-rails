@@ -1,0 +1,27 @@
+.container {
+  margin: 3em;
+}
+
+.start {
+  text-align: center;
+  font-family: helvetica;
+}
+
+.start h1 {
+  width: 0 auto;
+  text-align: center;
+  border: 1px solid;
+  font-family: helvetica;
+  border-radius: 5px;
+}
+
+.start h2 {
+  text-align: center;
+  border: 1px solid;
+  font-family: helvetica;
+  border-radius: 5px;
+}
+
+.hidden {
+  display: none;
+}
